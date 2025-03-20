@@ -1,7 +1,7 @@
 # ASIforTimOS
 Auto Script Installer (ASI) for TimOS on Pokemon Red, Blue and Yellow
 
-By using Nickname Writer, the imported script runs only once, losing the ability to execute again when the game restarts or a battle is encountered.
+By using Nickname Writer, the imported script runs only once, losing the ability to execute it again when the game restarts or after a battle happens.
 On the other hand, RAM writer environment (TimOS) is designed to maintain imported scripts permanently in memory.
 
 ASI comes handy for that specific purpose, since it automatically installs your scripts and makes them accessible over TimOS selector.
