@@ -6,17 +6,18 @@ On the other hand, RAM writer environment (TimOS) is designed to maintain import
 
 ASI comes handy for that specific purpose, since it automatically installs your scripts and makes them accessible over TimOS selector.
 
-How to use
-First of all make sure your script is runnable over Nickname Writer. After installation is done, the new script is moved automatically in unused space, so we do not want anything to go wrong!
+**How to use**
+
+First of all make sure your script is runnable over Nickname Writer. After installation is done, the new script is moved and saved automatically in unused space, so we do not want anything to go wrong!
 
 There are two methods to use ASI:
 
-- HEX ASI (easy): Use it to install simple or more complex scripts in HEX format, having only relative jumps inside their logic.
-- ASM ASI (advanced): Use it to install scripts on predefined addresses. The use of (Quick)RGBDS is required.
+- HEX ASI (easy): Use it to install simple or more complex scripts in HEX format, having only relative jumps inside their code.
+- ASM ASI (advanced): Use it to install scripts on predefined addresses. The use of (Quick)RGBDS is required in this case.
 
 
-HEX ASI Instructions
-1. Replace XX with the number of bytes of the script to be installed in hex (you can use a DEC to HEX calculator).
+**HEX ASI Instructions**
+1. Replace XX with the number of bytes of the script to be installed in hex (you can use a DEC to HEX calculator to get the correct number).
 2. Paste your script's hex code right after the installer.
 3. Import the whole code with Nickname Writer and run it.
 4. Run the last script in TimOS selector to confirm everything works fine. The number of scripts should have been increased by 1. 
@@ -43,10 +44,10 @@ d8 7d ea ec d8 e5 21 e9 c6 46
 
 
 
-ASM ASI Instructions
+**ASM ASI Instructions**
 
 This method requires you to have your script's code in assembly.
-- Use QuickRGBDS or RGBDS.
-- Download the proper ASI .asm file for Red and Blue or Yellow.
-- Open it with a text editor (Notepad++ is recommended) and follow the instructions included.
+1. Use QuickRGBDS or RGBDS.
+2. Download the proper ASI .asm file for Red and Blue or Yellow.
+3. Open it with a text editor (Notepad++ is recommended) and follow the instructions included.
 
