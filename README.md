@@ -1,5 +1,6 @@
-# ASIforTimOS
-Auto Script Installer (ASI) for BlipBlopMenu or TimOS environment on Pokemon Red, Blue and Yellow
+# Auto Script Installer (ASI)
+for [BlipBlopMenu2](https://github.com/M4n0zz/BlipBlopMenu2) or TimOS environment on English Pokémon Red, Blue, and Yellow
+
 
 When using Nickname Writer, imported scripts typically are lost after restarting the game or entering a battle. In contrast, TimOS provides an SRAM-based environment that allows scripts to persist in memory.
 
@@ -76,7 +77,7 @@ Open the ASI .asm file with a text editor (e.g., Notepad++ is recommended) and f
 - Set custom memory addresses if needed
 
 4. **Use a compiler:**
-Compile your script using QuickRGBDS or RGBDS to generate the final binary payload.
+Compile your script using [QuickRGBDS](https://github.com/M4n0zz/QuickRGBDS) or RGBDS to generate the final binary payload.
 
 5. **Import via Nickname Writer:**
 Use Nickname Writer to inject the full hex code (installer + script) into your save file.
