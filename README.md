@@ -1,10 +1,9 @@
 # Auto Script Installer (ASI)
-for [BlipBlopMenu2](https://github.com/M4n0zz/BlipBlopMenu2) or TimOS environment on English Pokémon Red, Blue, and Yellow
+Designed for [BlipBlopMenu2](https://github.com/M4n0zz/BlipBlopMenu2) or TimOS environment on English versions of Pokémon Red, Blue, and Yellow.
 
+When using Nickname Writer, imported scripts typically are lost after restarting the game or entering a trainer battle. In contrast, TimOS provides an SRAM-based environment that allows scripts to persist in memory.
 
-When using Nickname Writer, imported scripts typically are lost after restarting the game or entering a battle. In contrast, TimOS provides an SRAM-based environment that allows scripts to persist in memory.
-
-ASI is designed to take full advantage of this by automatically installing your scripts and making them permanently accessible through the TimOS script selector.
+ASI is designed to fully utilize this feature by automatically installing your scripts and making them permanently accessible via the TimOS script selector.
 
 
 **Getting Started with ASI**
