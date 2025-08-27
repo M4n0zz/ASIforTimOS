@@ -1,11 +1,15 @@
 /*
 
-TimOS Script Installer - Compatible with EN Yellow ONLY
+TimOS Auto Script Installer - Compatible with EN Yellow ONLY
 
 
 Description
 This script targets to the ease of installing one or more scripts into TimOS environment.
 It automatically finds and installs new scripts in unused memory.
+
+Restrictions
+This method is compatible ONLY WITH RELATIVE ADDRESS SCRIPTS!
+Static script's jumps or calls are not tolerated since the script can be installed in different addresses
 
 
 Instructions
@@ -18,25 +22,27 @@ The script will automatically calculate the offsets needed for:
 - Jump table
 - The script itself
 
-Warning!
-Make sure the area for your script is unused before installation!
-
 
 
 Source is compiled with QuickRGBDS
 https://github.com/M4n0zz/QuickRGBDS
 
 */
+include "pokeyellow.inc"
 
-DEF InstallationAddress = $c8c3
+def InstallationAddress  = $cccc    ; to be changed by itself
+def nicknameaddress      = $d8b4
+def scriptnumberaddress  = $c6e9 
+def defaultinstall       = $c7ff
+def scriptpointers       = $c7c0
 
-SECTION "ScriptInstaller", ROM0
+SECTION "AutoScriptInstaller", ROM0
 
-LOAD "Installer", WRAMX[$D8B4]
+LOAD "Installer", WRAMX[nicknameaddress]
 ; ----------- Installer payload ------------ 
 Installer:
 ; find free space in timos
-ld hl, $cb49
+ld hl, $cb49             ; last TimOS byte ($ff)
 .loop
 ld a, [hld]
 cp a, $ff
@@ -45,38 +51,38 @@ inc hl
 inc hl
 ld a, h
 cp a, $c8
-jr nc, .skip
-ld hl, $c7ff
+jr nc, .skip             ; if no script exists
+ld hl, defaultinstall    ; default installation address is set
 .skip
 ld [pointers+1], a
 ld a, l
 ld [pointers], a
-push hl
+push hl                  ; save pointers for later
 
 ; increse no of scripts
-ld hl, $c6e9
+ld hl, scriptnumberaddress
 ld b, [hl]
-ld a, scriptnumber	; calculated in DEF
+ld a, scriptnumber       ; calculated at the end of the file
 add a, [hl]
 ld [hl], a
 
 ; write pointers to the correct position
-ld de, $c7c0		; start counting from script #1
+ld   de, scriptpointers  ; start counting from script #1
 .pointerloop
-inc e
-inc e
-dec b
-jr nz, .pointerloop
+inc  e
+inc  e
+dec  b
+jr   nz, .pointerloop
 
 ; Copy pointers
-ld c, pointerwidth  ; Calculated in DEF - b = 0 from previous operation
-ld hl, pointers		; $d8d4	- origin
-call $00b1			; CopyData
+ld   c, pointerwidth     ; calculated at the end of the file
+ld   hl, pointers        ; origin
+call CopyMapConnectionHeaderloop
 
 ; Copy payloads
-ld c, payloadwidth	; Calculated in DEF
-pop de
-jp $00b1			; CopyData
+ld   c, payloadwidth     ; calculated at the end of the file
+pop  de                  ; destination
+jp   CopyMapConnectionHeaderloop
 
 
 ; ----------- Payload pointers ------------
@@ -88,15 +94,15 @@ ENDL
 
 LOAD "CustomPayload", WRAM0[InstallationAddress]
 
-start:		; do not replace this
+start:              ; do not replace this
 
 CustomPayload:
-; replace with your own payload
+; place your payload here
 
 
 
 
-end:		; do not replace this
+end:                ; do not replace this
 ENDL
 
 	
