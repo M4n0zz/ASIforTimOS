@@ -1,28 +1,28 @@
 # Auto Script Installer (ASI)
-Designed for [BlipBlopMenu2](https://github.com/M4n0zz/BlipBlopMenu2) or TimOS environment on English versions of Pokémon Red, Blue, and Yellow.
+Designed for [TimOS](https://glitchcity.wiki/wiki/Guides:Nickname_Writer_Codes#Installing_a_RAM_writer_environment_(TimOS)) or [BlipBlopMenu2](https://github.com/M4n0zz/BlipBlopMenu2) environment on English versions of Pokémon Red, Blue, and Yellow.
 
 When using Nickname Writer, imported scripts typically are lost after restarting the game or entering a trainer battle. In contrast, TimOS provides an SRAM-based environment that allows scripts to persist in memory.
 
-ASI is designed to fully utilize this feature by automatically installing your scripts and making them permanently accessible via the TimOS script selector.
+ASI is designed to fully utilize this feature by automatically installing your scripts and make them permanently accessible via the TimOS script selector.
 
 
 **Getting Started with ASI**
 
-First, make sure your script runs correctly using Nickname Writer. Once ASI installs the script, it moves and saves it in unused memory space — so it's important that everything works properly beforehand to avoid issues.
+First, make sure your script runs correctly using Nickname Writer. Once ASI installs the script, it moves and saves it in unused memory memory — so it's important that everything works properly beforehand to avoid issues.
 
 There are two ways to use ASI, depending on your script’s complexity and its logic:
 
 - **HEX ASI (Easy):**
-Use this method for installing simple or moderately complex scripts in raw HEX format, as long as they contain only relative jumps. It’s beginner-friendly and doesn't require a compiler.
+Use this method to install simple or moderately complex scripts in raw HEX format, as long as they contain only relative jumps. It’s beginner-friendly and doesn't require a compiler.
 
 - **ASM ASI (Advanced):**
-Choose this method for scripts that need to be placed at specific memory addresses. This requires using (Quick)RGBDS to compile your .asm files into installable payloads.
+Choose this method for scripts that need to be placed in specific memory addresses. This requires using (Quick)RGBDS to compile your .asm files into installable payloads.
 
 -----
 
 **HEX ASI Instructions**
 1. **Replace XX:**
-In the installer code, replace XX with the hexadecimal size of your script.
+In the installer's hex payload, replace XX with the hexadecimal number of byte number your script consists of.
 You can use a decimal-to-hex calculator to get the correct value.
 
 2. **Append your script:**
@@ -60,7 +60,7 @@ d8 7d ea ec d8 e5 21 e9 c6 46
 
 **ASM ASI Instructions**
 
-This method requires your script to be written in assembly language (.asm).
+This method requires your script to be written in SM83 assembly language (.asm).
 
 1. **Prepare your script:**
 Write your assembly script in RGBDS format and ensure it's compatible with the correct version of the ROM you are using (English Red, Blue or Yellow).
@@ -71,7 +71,7 @@ Get the correct ASI .asm file based on your game version:
 - Use the Yellow ASI template for Pokémon Yellow.
 
 3. **Edit the ASI file:**
-Open the ASI .asm file with a text editor (e.g., Notepad++ is recommended) and follow the inline instructions to:
+Open the ASI .asm file with a text editor (Notepad++ is recommended) and follow the inline instructions to:
 - Insert your assembly code
 - Set custom memory addresses if needed
 
