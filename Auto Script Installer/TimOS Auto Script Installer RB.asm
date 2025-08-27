@@ -42,29 +42,29 @@ LOAD "Installer", WRAMX[nicknameaddress]
 ; ----------- Installer payload ------------ 
 Installer:
 ; find free space in timos
-ld hl, $cb49             ; last TimOS byte ($ff)
+ld   hl, $cb49             ; last TimOS byte ($ff)
 .loop
-ld a, [hld]
-cp a, $ff
-jr z, .loop
-inc hl
-inc hl
-ld a, h
-cp a, $c8
-jr nc, .skip             ; if no script exists
-ld hl, defaultinstall    ; default installation address is set
+ld   a, [hld]
+cp   a, $ff
+jr   z, .loop
+inc  hl
+inc  hl
+ld   a, h
+cp   a, $c8
+jr   nc, .skip             ; if no script exists
+ld   hl, defaultinstall    ; default installation address is set
 .skip
-ld [pointers+1], a
-ld a, l
-ld [pointers], a
+ld   [pointers+1], a
+ld   a, l
+ld   [pointers], a
 push hl                  ; save pointers for later
 
 ; increse no of scripts
-ld hl, scriptnumberaddress
-ld b, [hl]
-ld a, scriptnumber       ; calculated at the end of the file
-add a, [hl]
-ld [hl], a
+ld   hl, scriptnumberaddress
+ld   b, [hl]
+ld   a, scriptnumber       ; calculated at the end of the file
+add  a, [hl]
+ld   [hl], a
 
 ; write pointers to the correct position
 ld   de, scriptpointers  ; start counting from script #1
